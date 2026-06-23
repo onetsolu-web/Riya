@@ -1,0 +1,667 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Riya Das | Nature Social Hub</title>
+
+<!-- GOOGLE FONT -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    background:#021b0f;
+}
+
+/* =========================
+   ANIMATED FOREST BACKGROUND
+========================= */
+
+.background{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top,#4caf50 0%,transparent 30%),
+    radial-gradient(circle at bottom,#1b5e20 0%,transparent 30%),
+    linear-gradient(to bottom,#052e16,#021b0f);
+    overflow:hidden;
+}
+
+/* LIGHT RAYS */
+
+.light{
+    position:absolute;
+    width:300px;
+    height:100vh;
+    background:rgba(255,255,255,0.05);
+    filter:blur(80px);
+    transform:rotate(20deg);
+    animation:lightMove 8s ease-in-out infinite alternate;
+}
+
+.light:nth-child(1){
+    left:10%;
+}
+
+.light:nth-child(2){
+    left:60%;
+    animation-delay:2s;
+}
+
+@keyframes lightMove{
+
+    from{
+        transform:translateY(-50px) rotate(20deg);
+    }
+
+    to{
+        transform:translateY(50px) rotate(20deg);
+    }
+
+}
+
+/* =========================
+   FLOATING LEAVES
+========================= */
+
+.leaf{
+    position:absolute;
+    top:-10%;
+    color:#81c784;
+    opacity:0.8;
+    animation:fall linear infinite;
+}
+
+.leaf i{
+    filter:drop-shadow(0 0 10px rgba(255,255,255,0.3));
+}
+
+@keyframes fall{
+
+    0%{
+        transform:
+        translateY(-10vh)
+        translateX(0)
+        rotate(0deg);
+    }
+
+    100%{
+        transform:
+        translateY(120vh)
+        translateX(100px)
+        rotate(360deg);
+    }
+
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:#dcedc8;
+    border-radius:50%;
+    opacity:0.8;
+    animation:particleFloat 6s linear infinite;
+}
+
+@keyframes particleFloat{
+
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120px);
+        opacity:0;
+    }
+
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.container{
+    width:100%;
+    max-width:430px;
+    z-index:10;
+    padding:20px;
+}
+
+.card{
+    background:rgba(0,0,0,0.35);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    border-radius:35px;
+    padding:35px 24px;
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.5),
+    inset 0 0 20px rgba(255,255,255,0.05);
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+    text-align:center;
+}
+
+.profile-img-wrapper{
+    width:150px;
+    height:150px;
+    margin:auto;
+    border-radius:50%;
+    padding:5px;
+    background:linear-gradient(135deg,#a5d6a7,#4caf50);
+    animation:glow 4s infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+        box-shadow:0 0 15px #66bb6a;
+    }
+
+    to{
+        box-shadow:0 0 35px #81c784;
+    }
+
+}
+
+.profile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid rgba(255,255,255,0.2);
+}
+
+.profile h1{
+    font-family:'Great Vibes',cursive;
+    font-size:4rem;
+    color:white;
+    margin-top:20px;
+    font-weight:400;
+}
+
+.subtitle{
+    color:#c5e1a5;
+    margin-top:5px;
+    font-size:1rem;
+    letter-spacing:1px;
+}
+
+/* =========================
+   SOCIAL BUTTONS
+========================= */
+
+.links{
+    margin-top:35px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.social-btn{
+    position:relative;
+    overflow:hidden;
+    text-decoration:none;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 20px;
+    border-radius:24px;
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+}
+
+.social-btn:hover{
+    transform:translateY(-4px) scale(1.02);
+}
+
+.social-btn::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.25),
+        transparent
+    );
+    transition:0.7s;
+}
+
+.social-btn:hover::before{
+    left:120%;
+}
+
+.social-left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.social-icon{
+    width:58px;
+    height:58px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.8rem;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.social-text h2{
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+.social-text p{
+    font-size:0.85rem;
+    opacity:0.9;
+}
+
+.arrow{
+    font-size:1.3rem;
+    opacity:0.9;
+}
+
+/* BUTTON COLORS */
+
+.youtube{
+    background:linear-gradient(135deg,#ff0000,#b30000);
+}
+
+.youtube .social-icon{
+    background:#fff;
+    color:#ff0000;
+}
+
+.instagram{
+    background:linear-gradient(
+        135deg,
+        #833ab4,
+        #fd1d1d,
+        #fcb045
+    );
+}
+
+.instagram .social-icon{
+    background:#fff;
+    color:#d6249f;
+}
+
+.facebook{
+    background:linear-gradient(
+        135deg,
+        #1877f2,
+        #0d47a1
+    );
+}
+
+.facebook .social-icon{
+    background:#fff;
+    color:#1877f2;
+}
+
+.fbpage{
+    background:linear-gradient(
+        135deg,
+        #1e3c72,
+        #2a5298
+    );
+}
+
+.fbpage .social-icon{
+    background:#fff;
+    color:#1e3c72;
+}
+
+.email{
+    background:linear-gradient(
+        135deg,
+        #2e7d32,
+        #66bb6a
+    );
+}
+
+.email .social-icon{
+    background:#fff;
+    color:#2e7d32;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    margin-top:35px;
+    text-align:center;
+}
+
+.footer-text{
+    font-family:'Great Vibes',cursive;
+    color:#dcedc8;
+    font-size:2rem;
+}
+
+.copyright{
+    margin-top:20px;
+    color:#c5e1a5;
+    font-size:0.8rem;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    .profile h1{
+        font-size:3.2rem;
+    }
+
+    .social-text h2{
+        font-size:1rem;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="background">
+
+    <div class="light"></div>
+    <div class="light"></div>
+
+</div>
+
+<!-- FLOATING LEAVES -->
+
+<div class="leaf" style="left:5%; animation-duration:12s; font-size:30px;">
+    <i class="fas fa-leaf"></i>
+</div>
+
+<div class="leaf" style="left:20%; animation-duration:18s; animation-delay:2s; font-size:22px;">
+    <i class="fas fa-leaf"></i>
+</div>
+
+<div class="leaf" style="left:35%; animation-duration:15s; animation-delay:5s; font-size:28px;">
+    <i class="fas fa-leaf"></i>
+</div>
+
+<div class="leaf" style="left:55%; animation-duration:20s; animation-delay:1s; font-size:20px;">
+    <i class="fas fa-leaf"></i>
+</div>
+
+<div class="leaf" style="left:75%; animation-duration:14s; animation-delay:3s; font-size:34px;">
+    <i class="fas fa-leaf"></i>
+</div>
+
+<div class="leaf" style="left:90%; animation-duration:17s; animation-delay:6s; font-size:24px;">
+    <i class="fas fa-leaf"></i>
+</div>
+
+<!-- MAIN CARD -->
+
+<div class="container">
+
+    <div class="card">
+
+        <!-- PROFILE -->
+
+        <div class="profile">
+
+            <div class="profile-img-wrapper">
+
+                <img src="https://i.imgur.com/2DhmtJ4.png">
+
+            </div>
+
+            <h1>Riya Das</h1>
+
+            <p class="subtitle">
+                Creator • Poetry • Lifestyle
+            </p>
+
+        </div>
+
+        <!-- SOCIAL LINKS -->
+
+        <div class="links">
+
+            <!-- YOUTUBE -->
+
+            <a href="https://www.youtube.com/@TalkativeRiya/shorts"
+               target="_blank"
+               class="social-btn youtube">
+
+                <div class="social-left">
+
+                    <div class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+
+                    <div class="social-text">
+                        <h2>YouTube</h2>
+                        <p>@TalkativeRiya</p>
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </a>
+
+            <!-- INSTAGRAM -->
+
+            <a href="https://www.instagram.com/imriadas"
+               target="_blank"
+               class="social-btn instagram">
+
+                <div class="social-left">
+
+                    <div class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+
+                    <div class="social-text">
+                        <h2>Instagram</h2>
+                        <p>@imriadas</p>
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </a>
+
+            <!-- FACEBOOK -->
+
+            <a href="https://www.facebook.com/riya.das.447082"
+               target="_blank"
+               class="social-btn facebook">
+
+                <div class="social-left">
+
+                    <div class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+
+                    <div class="social-text">
+                        <h2>Facebook ID</h2>
+                        <p>Personal Profile</p>
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </a>
+
+            <!-- FACEBOOK PAGE -->
+
+            <a href="https://www.facebook.com/profile.php?id=100064187495268"
+               target="_blank"
+               class="social-btn fbpage">
+
+                <div class="social-left">
+
+                    <div class="social-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+
+                    <div class="social-text">
+                        <h2>Facebook Page</h2>
+                        <p>Official Page</p>
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </a>
+
+            <!-- EMAIL -->
+
+            <a href="mailto:riyadasriyarkothaokobita@gmail.com"
+               class="social-btn email">
+
+                <div class="social-left">
+
+                    <div class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+
+                    <div class="social-text">
+                        <h2>Collaboration</h2>
+                        <p>Email Me</p>
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </a>
+
+        </div>
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            <div class="footer-text">
+                Let's Grow Together
+            </div>
+
+            <div class="copyright">
+                © 2026 Riya Das
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+/* =========================
+   PARTICLE EFFECT
+========================= */
+
+function createParticle(){
+
+    const particle = document.createElement('div');
+
+    particle.classList.add('particle');
+
+    particle.style.left =
+        Math.random() * 100 + 'vw';
+
+    particle.style.top = '100vh';
+
+    particle.style.animationDuration =
+        (Math.random() * 4 + 4) + 's';
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => {
+
+        particle.remove();
+
+    },6000);
+
+}
+
+setInterval(createParticle,300);
+
+</script>
+
+</body>
+
+</html>
+```
